@@ -1,0 +1,30 @@
+This is how this would work with react:
+
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+
+// this normal html way won't work because react doesn't understand your syntax
+const HTMLElement = {
+  type: 'a',
+  props: {
+      href: "https://twitter.com/@somtuzyonyeka",
+      target: "_blank"
+  },
+  children: "click me"
+}
+
+// react jsx expects elements in this way but it's different from the syntax above
+const HTMLToReactElement = (<a href="https://twitter.com/@somtuzyonyeka" target="_blank">click me</a>)
+
+// this is how to make the html element syntax return a jsx element like the one above
+const ReactElement = React.createElement(
+    'a',
+    {
+    href: "https://twitter.com/@somtuzyonyeka",
+    target: "_blank"
+    },
+    "click me"
+)
+
+ReactDOM.createRoot(document.getElementById('root')!)
+.render(ReactElement)
